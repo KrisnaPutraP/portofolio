@@ -18,7 +18,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
 
   return (
     <div
-      className="relative mx-2"
+      className="relative mx-3" 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsHovered(true)}
@@ -29,7 +29,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
           flex 
           items-center 
           justify-center 
-          p-4 
+          p-6  /* Increased padding */
           transition-transform 
           transform-gpu 
           hover:scale-105 
@@ -40,14 +40,14 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
           dark:border-gray-600 
           rounded-lg 
           shadow-md
-          w-20 h-20  /* Fixed width and height */
+          w-48 h-48  /* Increased width and height */
         "
-        tabIndex={0} // Make it focusable for keyboard navigation
+        tabIndex={0}
         aria-describedby={`tooltip-${skill.name}`}
       >
         <div
           className={`
-            p-3 
+            p-4  /* Adjusted padding */
             rounded 
             flex 
             items-center 
@@ -63,8 +63,8 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
           <Image
             src={skill.logo}
             alt={`${skill.name} logo`}
-            width={48}
-            height={48}
+            width={96}  // Increased image size
+            height={96} // Increased image size
             className="
               object-contain 
               mix-blend-normal 
@@ -85,10 +85,10 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
             -translate-y-1/2 
             bg-gray-800 
             text-white 
-            px-3 
-            py-1 
+            px-8
+            py-4  
             rounded-md 
-            text-xs 
+            text-md
             shadow-lg 
             flex 
             items-center 

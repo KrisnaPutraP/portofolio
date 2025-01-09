@@ -2,9 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Bars3Icon as MenuIcon, XMarkIcon as XIcon } from "@heroicons/react/24/outline"; // Ensure these icons are installed
+import Image from "next/image";
 
 const NavBar = () => {
   const [activeSection, setActiveSection] = useState("hero");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,34 +40,90 @@ const NavBar = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const offset = 100; 
-      const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset;
+      const offset = 80; 
+      const sectionPosition =
+        section.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
         top: sectionPosition - offset,
-        behavior: "smooth"
+        behavior: "smooth",
       });
+      setIsMobileMenuOpen(false); 
     }
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full bg-background/80 backdrop-blur-sm border-b">
-      <div className="flex h-16 items-center gap-2">
-        {navItems.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => scrollToSection(item.id)}
-            className={cn(
-              "px-4 py-2 text-sm transition-colors hover:text-foreground/80",
-              activeSection === item.id
-                ? "text-foreground font-medium"
-                : "text-foreground/60"
-            )}
-          >
-            {item.label}
-          </button>
-        ))}
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Responsive Grid Layout */}
+        <div className="grid grid-cols-2 md:grid-cols-3 items-center h-16">
+          {/* First Column: Logo */}
+          <div className="flex items-center justify-start">
+            <Image src="/pacil.png" alt="Pacil" width={50} height={50} />
+          </div>
+
+          {/* Second Column: Navigation Items (Hidden on Mobile) */}
+          <div className="hidden md:flex md:justify-center md:space-x-4">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={cn(
+                  "px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-foreground/80",
+                  activeSection === item.id
+                    ? "text-foreground font-semibold"
+                    : "text-foreground/60"
+                )}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Third Column: Placeholder for Desktop (Can be used for additional items) */}
+          <div className="hidden md:flex md:justify-end">
+            {/* Optional: Add additional items here (e.g., social icons, search bar) */}
+          </div>
+
+          {/* Mobile: Hamburger Menu on Right */}
+          <div className="flex items-center justify-end md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-md text-foreground/60 hover:text-foreground/80 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-foreground"
+              aria-expanded={isMobileMenuOpen}
+            >
+              <span className="sr-only">Open main menu</span>
+              {isMobileMenuOpen ? (
+                <XIcon className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <MenuIcon className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-background/90 backdrop-blur-sm border-t">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={cn(
+                  "block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors hover:text-foreground/80",
+                  activeSection === item.id
+                    ? "text-foreground font-semibold"
+                    : "text-foreground/60"
+                )}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
   );
 };
 

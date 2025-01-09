@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster"
+import Footer from "@/components/footer";
 
 const raleway = Raleway({
   subsets: ["latin"],
   variable: "--font-sans",
-  // Optional: you can specify weight if you want specific ones
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  // Optional: if you want italic variants
   style: ["normal", "italic"],
 });
 
@@ -52,30 +52,6 @@ export const metadata: Metadata = {
   },
 };
 
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//     <html lang="en" suppressHydrationWarning>
-//       <body
-//         className={cn(
-//           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
-//           fontSans.variable
-//         )}
-//       >
-//         <ThemeProvider attribute="class" defaultTheme="light">
-//           <TooltipProvider delayDuration={0}>
-//             {children}
-//             <Navbar />
-//           </TooltipProvider>
-//         </ThemeProvider>
-//       </body>
-//     </html>
-//   );
-// }
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -113,10 +89,12 @@ export default function RootLayout({
             </div>
             
             {/* Content Container */}
-            <div className="relative mx-auto max-w-2xl px-6 py-12 sm:py-24">
+            <div className="relative px-6 py-12 sm:py-24">
               {children}
               <Navbar />
+              <Footer />
             </div>
+            <Toaster />
           </TooltipProvider>
         </ThemeProvider>
       </body>
