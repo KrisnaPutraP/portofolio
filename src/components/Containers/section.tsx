@@ -13,13 +13,23 @@ const Section = ({ id, title, children, className }: SectionProps) => {
     <section
       id={id}
       className={cn(
-        "relative rounded-lg border border-transparent bg-background/50 p-6 transition-all duration-300",
-        "hover:border-border hover:bg-accent/10 hover:shadow-lg",
+        "relative overflow-hidden",
+        "border border-slate-200/50 dark:border-slate-800/50",
+        "bg-gradient-to-br from-white/50 via-slate-50/30 to-white/50",
+        "dark:from-slate-900/50 dark:via-slate-800/30 dark:to-slate-900/50",
+        "backdrop-blur-[12px]",
+        "p-8",
+        "transition-all duration-500 ease-out",
+        "hover:border-border hover:shadow-xl",
+        "hover:scale-[1.01]",
         "group",
         className
       )}
     >
-      {/* Animated corner borders */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+      </div>
+
       <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
         {/* Top left corner */}
         <div className="absolute left-0 top-0 h-[2px] w-8 bg-gradient-to-r from-primary to-transparent" />
@@ -46,8 +56,12 @@ const Section = ({ id, title, children, className }: SectionProps) => {
         <div className="h-[1px] flex-1 bg-border opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
 
-      {/* Section Content */}
-      <div className="relative z-10">{children}</div>
+      {/* Content Container */}
+      <div className="relative">
+        <div className="relative z-10 transition-transform duration-500 group-hover:translate-x-1">
+          {children}
+        </div>
+      </div>
     </section>
   );
 };

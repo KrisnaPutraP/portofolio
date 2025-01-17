@@ -1,14 +1,14 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/magicui/card";
+import { Button } from "@/components/magicui/button";
+import { Input } from "@/components/magicui/input";
+import { Textarea } from "@/components/magicui/textarea";
 import BlurFade from "@/components/magicui/blur-fade";
 import { Mail, Loader2 } from "lucide-react";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useToast } from "@/components/hooks/use-toast";
-import ShimmerButton from "@/components/ui/shimmer-button";
+import ShimmerButton from "@/components/magicui/shimmer-button";
 
 interface FormData {
   name: string;

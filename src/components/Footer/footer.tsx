@@ -1,6 +1,6 @@
 "use client";
 
-import { DATA } from "@/data/resume";
+import { DATA } from "@/data/data";
 import Link from "next/link";
 import { Github } from "lucide-react";
 import { cn } from "@/lib/utils";

@@ -4,13 +4,12 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 export const DATA = {
   name: "Krisna Putra Purnomo",
   initials: "KPP",
-  url: "https://dillion.io",
   location: "Kota Depok, Jawa Barat",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "Undergraduate Computer Science Student at University of Indonesia with a strong interest in machine learning, and software development. Always open to hackathons and data competitions.",
+    "Jakarta-born, Tegal-raised, hardworking problem solver who's into the emerging world of Machine Learning and Data Science.",
   summary:
-    "I am a dedicated Computer Science student driven by a passion for machine learning and software engineering. My academic focus revolves around artificial intelligence and software development best practices. With strong problem-solving skills, an eye for system optimization, and an unwavering commitment to continuous learning, I am excited to contribute to the field at the intersection of AI and software development.",
+    "A Computer Science student specializing in machine learning and software engineering, with a keen focus on AI development and software best practices. I combine strong problem-solving capabilities with system optimization expertise to create innovative solutions at the intersection of AI and software development.",
   avatarUrl: "/me.jpg",
   skills: {
     languages: [
@@ -42,6 +41,7 @@ export const DATA = {
       { name: "VS Code", logo: "/skills/vscode.svg" },
       { name: "Neon", logo: "/skills/neon.svg" },
       { name: "Vercel", logo: "/skills/vercel.svg" },
+      { name: "MongoDB", logo: "/skills/mongodb.svg" },
     ]
   } as const,
   navbar: [
@@ -100,60 +100,88 @@ export const DATA = {
       href: "https://www.linkedin.com/company/faculty-of-computer-science-universitas-indonesia/posts/?feedView=all",
       badges: [],
       location: "Depok, West Java, Indonesia · Hybrid",
-      title: "Teaching Assistant of Calculus 1 (CSGE601012)",
       logoUrl: "/ui.jpg",
-      start: "July 2024",
-      end: "December 2024",
-      description:
-        "As a Teaching Assistant for Calculus, I supervised weekly quizzes in a class of 64 students and coordinated with two fellow TAs to distribute grading responsibilities. I also evaluated quizzes, group assignments and homeworks for 21 students, and led post-quiz discussions analyzing the newly completed quizzes.",
+      roles: [
+        {
+          title: "Teaching Assistant of Calculus 1 (CSGE601012)",
+          start: "July 2024",
+          end: "December 2024",
+          description:
+            "As a Teaching Assistant for Calculus, I supervised weekly quizzes in a class of 64 students and coordinated with two fellow TAs to distribute grading responsibilities. I also evaluated quizzes, group assignments and homeworks for 21 students, and led post-quiz discussions analyzing the newly completed quizzes.",
+        },
+        {
+          title: "Teaching Assistant of Discrete Mathematics 2 (CSGE601012)",
+          start: "January 2025",
+          end: "June 2025",
+          description:
+            "As a Teaching Assistant for Discrete Mathematics, I supervised quizzes in a class of 64 students and coordinated with two fellow TAs to distribute grading responsibilities. I also evaluated quizzes, group assignments and homeworks for 21 students, and led post-quiz discussions analyzing the newly completed quizzes.",
+        },
+        
+      ],
     },
     {
       company: "COMPFEST",
-      badges: [],
       href: "https://www.linkedin.com/company/compfest/posts/?feedView=all",
+      badges: [],
       location: "Depok, West Java, Indonesia · Hybrid",
-      title: "Staff of Media Partner",
       logoUrl: "/compfest.jpg",
-      start: "April 2024",
-      end: "November 2024",
-      description:
-        "As a Media Partner Staff for Compfest, I established and maintained relationships with external media partners to ensure a successful event. Through effective communication and strategic collaborations, I maximized brand visibility and audience engagement, managing promotional materials and coordinating coverage to drive widespread awareness and attendance.",
+      roles: [
+        {
+          title: "Staff of Media Partner",
+          start: "April 2024",
+          end: "November 2024",
+          description:
+            "As a Media Partner Staff for Compfest, I established and maintained relationships with external media partners to ensure a successful event. Through effective communication and strategic collaborations, I maximized brand visibility and audience engagement, managing promotional materials and coordinating coverage to drive widespread awareness and attendance.",
+        },
+      ],
     },
     {
       company: "Dasar-Dasar Pemrograman 0",
-      badges: [],
       href: "https://www.linkedin.com/company/ddp-0/posts/?feedView=all",
+      badges: [],
       location: "Depok, West Java, Indonesia · Hybrid",
-      title: "Student Mentor",
       logoUrl: "/ddp0.jpg",
-      start: "July 2024",
-      end: "August 2024",
-      description:
-        "As a student mentor, I taught three freshmen the fundamentals of Python by thoroughly explaining presentation materials and practical exercises alongside one other mentor. Through weekly hands-on exercises, personalized feedback, and guided practice, we helped them build a strong foundation in programming concepts and problem-solving strategies.",
+      roles: [
+        {
+          title: "Student Mentor",
+          start: "July 2024",
+          end: "August 2024",
+          description:
+            "As a student mentor, I taught three freshmen the fundamentals of Python by thoroughly explaining presentation materials and practical exercises alongside one other mentor. Through weekly hands-on exercises, personalized feedback, and guided practice, we helped them build a strong foundation in programming concepts and problem-solving strategies.",
+        },
+      ],
     },
     {
       company: "Google Developer Student Club Universitas Indonesia",
-      badges: [],
       href: "https://www.linkedin.com/company/gdsc-ui/posts/?feedView=all",
+      badges: [],
       location: "Depok, West Java, Indonesia · Hybrid",
-      title: "Member",
       logoUrl: "/gdsc.jpg",
-      start: "October 2023",
-      end: "July 2024",
-      description:
-        "I participated in the Google Developer Student Club by attending only webinars and study jam sessions to expand my technical knowledge, although my involvement was relatively limited.",
+      roles: [
+        {
+          title: "Member",
+          start: "October 2023",
+          end: "July 2024",
+          description:
+            "I participated in the Google Developer Student Club by attending only webinars and study jam sessions to expand my technical knowledge, although my involvement was relatively limited.",
+        },
+      ],
     },
     {
       company: "BEM Fakultas Ilmu Komputer Universitas Indonesia",
-      badges: [],
       href: "https://www.linkedin.com/company/bem-fakultas-ilmu-komputer-universitas-indonesia/",
+      badges: [],
       location: "Depok, West Java, Indonesia · Hybrid",
-      title: "Intern Staff at Strategic Research and Action (KASTRAT)",
       logoUrl: "/bemfasilkom.jpg",
-      start: "September 2023",
-      end: "December 2023",
-      description:
-        "As an intern staff member in the Student Executive Board’s Strategic Research and Action division (Kastrat), I contributed to policy discussions, analyzed student concerns, and assisted in planning strategic campaigns to address key campus issues. This experience allowed me to develop valuable research skills, collaborate with diverse stakeholders, and drive meaningful initiatives for the student community.",
+      roles: [
+        {
+          title: "Intern Staff at Strategic Research and Action (KASTRAT)",
+          start: "September 2023",
+          end: "December 2023",
+          description:
+            "As an intern staff member in the Student Executive Board’s Strategic Research and Action division (Kastrat), I contributed to policy discussions, analyzed student concerns, and assisted in planning strategic campaigns to address key campus issues. This experience allowed me to develop valuable research skills, collaborate with diverse stakeholders, and drive meaningful initiatives for the student community.",
+        },
+      ],
     },
   ],
   education: [
@@ -168,7 +196,7 @@ export const DATA = {
     {
       school: "SMA Negeri 1 Kota Tegal",
       href: "https://www.instagram.com/smansaku/",
-      degree: "Matematika dan Ilmu Pengetahuan Alam (MIPA)",
+      degree: "Natural Science and Mathematics",
       logoUrl: "/smansa.png",
       start: "2020",
       end: "2023",

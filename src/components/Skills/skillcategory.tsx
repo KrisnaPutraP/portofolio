@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import Marquee from "@/components/ui/marquee";
-import SkillItem from "@/components/skillitem";
-import { Card } from "@/components/ui/card";
+import Marquee from "@/components/magicui/marquee";
+import SkillItem from "@/components/Skills/skillitem";
+import { Card } from "@/components/magicui/card";
 
 interface Skill {
   name: string;

@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { Bars3Icon as MenuIcon, XMarkIcon as XIcon } from "@heroicons/react/24/outline"; // Ensure these icons are installed
 import Image from "next/image";
 
@@ -30,7 +29,7 @@ const NavBar = () => {
 
   const navItems = [
     { id: "about", label: "About" },
-    { id: "work", label: "Experience" },
+    { id: "experience", label: "Experience" },
     { id: "education", label: "Education" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
@@ -54,14 +53,11 @@ const NavBar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Responsive Grid Layout */}
         <div className="grid grid-cols-2 md:grid-cols-3 items-center h-16">
-          {/* First Column: Logo */}
           <div className="flex items-center justify-start">
             <Image src="/pacil.png" alt="Pacil" width={50} height={50} />
           </div>
 
-          {/* Second Column: Navigation Items (Hidden on Mobile) */}
           <div className="hidden md:flex md:justify-center md:space-x-4">
             {navItems.map((item) => (
               <button
@@ -78,13 +74,9 @@ const NavBar = () => {
               </button>
             ))}
           </div>
-
-          {/* Third Column: Placeholder for Desktop (Can be used for additional items) */}
           <div className="hidden md:flex md:justify-end">
-            {/* Optional: Add additional items here (e.g., social icons, search bar) */}
           </div>
 
-          {/* Mobile: Hamburger Menu on Right */}
           <div className="flex items-center justify-end md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -102,7 +94,6 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-background/90 backdrop-blur-sm border-t">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">

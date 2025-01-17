@@ -1,15 +1,13 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/magicui/card";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/magicui/dialog";
+import { Badge } from "@/components/magicui/badge";
+import { Button } from "@/components/magicui/button";
 import BlurFade from "@/components/magicui/blur-fade";
 import Image from 'next/image';
-import { DATA } from "@/data/resume";
-import Section from "@/components/section";
-import { Loader2 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { DATA } from "@/data/data";
+import Section from "@/components/Containers/section";
 
 const Projects = () => {
   return (

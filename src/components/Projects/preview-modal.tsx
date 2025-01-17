@@ -1,8 +1,8 @@
 import { useCallback, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { cn } from "@/lib/utils";
-import Safari from "@/components/ui/safari";
-import Android from "@/components/ui/android";
+import Safari from "@/components/magicui/safari";
+import Android from "@/components/magicui/android";
 
 interface PreviewModalProps {
     isOpen: boolean;
