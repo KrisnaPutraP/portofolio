@@ -43,8 +43,8 @@ export default function AnimatedHeader() {
     "Software Engineering",
     "Data Science",
     "Machine Learning",
-    "Prompt Engineering",
-    "Problem Solving"
+    "Problem Solving",
+    "Web-3 Development",
   ];
 
   const handleMainTextComplete = useCallback(() => {
@@ -90,7 +90,7 @@ export default function AnimatedHeader() {
             className="min-h-[3em]"
           >
             <p className="text-xl sm:text-2xl font-semibold leading-relaxed text-black-200">
-              Jakarta-born, Tegal-raised, hardworking problem solver who&apos;s 
+              Hardworking problem solver who&apos;s 
               into the emerging world of Machine Learning and Data Science.
             </p>
           </motion.div>

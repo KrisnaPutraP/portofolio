@@ -7,7 +7,7 @@ export const DATA = {
   location: "Kota Depok, Jawa Barat",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "Jakarta-born, Tegal-raised, hardworking problem solver who's into the emerging world of Machine Learning and Data Science.",
+    "Hardworking problem solver who's into the emerging world of Machine Learning and Data Science.",
   summary:
     "A Computer Science student specializing in machine learning and software engineering, with a keen focus on AI development and software best practices. I combine strong problem-solving capabilities with system optimization expertise to create innovative solutions at the intersection of AI and software development.",
   avatarUrl: "/me.jpg",
@@ -103,16 +103,23 @@ export const DATA = {
       logoUrl: "/ui.jpg",
       roles: [
         {
-          title: "Teaching Assistant of Calculus 1 (CSGE601012)",
+          title: "Teaching Assistant of Calculus 1",
           start: "July 2024",
           end: "December 2024",
           description:
             "As a Teaching Assistant for Calculus, I supervised weekly quizzes in a class of 64 students and coordinated with two fellow TAs to distribute grading responsibilities. I also evaluated quizzes, group assignments and homeworks for 21 students, and led post-quiz discussions analyzing the newly completed quizzes.",
         },
         {
-          title: "Teaching Assistant of Discrete Mathematics 2 (CSGE601012)",
+          title: "Teaching Assistant of Discrete Mathematics 2",
           start: "January 2025",
           end: "June 2025",
+          description:
+            "As a Teaching Assistant for Discrete Mathematics, I supervised quizzes in a class of around 30 students and coordinated with other TAs to distribute grading responsibilities. I also evaluated quizzes, group assignments and homeworks for 21 students, and led post-quiz discussions analyzing the newly completed quizzes.",
+        },
+        {
+          title: "Teaching Assistant of Data Structures and Algorithms",
+          start: "August 2025",
+          end: "December 2025",
           description:
             "As a Teaching Assistant for Discrete Mathematics, I supervised quizzes in a class of 64 students and coordinated with two fellow TAs to distribute grading responsibilities. I also evaluated quizzes, group assignments and homeworks for 21 students, and led post-quiz discussions analyzing the newly completed quizzes.",
         },
@@ -316,5 +323,71 @@ export const DATA = {
       video:
         "",
     },
+    {
+      title: "Rizzserve",
+      href: "https://www.rizzserve.site/",
+      dates: "June 2025",
+      active: true,
+      description:
+        "As part of Advanced Programming course (2024/2025), my group built a scalable microservices-based restaurant ordering platform utilizing Spring Boot (Java) and Rocket (Rust) frameworks for optimal performance and modular architecture. I personally developed the \"Manage Menu\" feature, implementing secure gRPC communication protocols using Protocol Buffers (protobuf) for seamless authentication service integration.",
+      technologies: [
+        "Kubernetes",
+        "Spring Boot",
+        "TailwindCSS",
+        "JavaScript",
+        "PostgreSQL",
+        "Next.js",
+        "Rust",
+        "Amazon Web Services (AWS)",
+        "Docker",
+        "Grafana"
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://www.rizzserve.site/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/orgs/advprog-a08/repositories",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/projects/rizzserve.png",
+      video:
+        "",
+    },
+    {
+      title: "BimbelKu",
+      href: "https://kelompok-12-bimbelku-frontend.pkpl.cs.ui.ac.id/",
+      dates: "May 2025",
+      active: true,
+      description:
+        "As part of Introduction of Software Security course (2024/2025), my group built a microservices-based e-learning platform utilizing Django (Python) and Next.js frameworks. I developed around half of the core features, focusing on security. My work included implementing audit logs, input sanitization, authentication and authorization layers, and secure session management. I also applied OWASP principles and performed security testing to ensure robust protection against vulnerabilities. Unfortunately, the website is currently inaccessible as the campus-provided hosting server has likely been shut down.",
+      technologies: [
+        "Django",
+        "TailwindCSS",
+        "JavaScript",
+        "PostgreSQL",
+        "Next.js",
+        "Docker",
+        "Python"
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://kelompok-12-bimbelku-frontend.pkpl.cs.ui.ac.id/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Private Repository",
+          icon: <Icons.github className="size-3" />,
+        }
+      ],
+      image: "/projects/bimbelku.png",
+      video:
+        "",
+    }
   ],
 } as const;

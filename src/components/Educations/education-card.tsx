@@ -1,21 +1,23 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/magicui/avatar";
-import { Badge } from "@/components/magicui/badge";
-import { Card, CardHeader } from "@/components/magicui/card";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { ChevronRightIcon } from "lucide-react";
-import Link from "next/link";
-import React from "react";
+"use client"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/magicui/avatar"
+import { Badge } from "@/components/magicui/badge"
+import { Card, CardHeader } from "@/components/magicui/card"
+import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
+import { ChevronRightIcon, GraduationCapIcon, CalendarIcon } from "lucide-react"
+import Link from "next/link"
+import React from "react"
 
 interface EducationCardProps {
-  logoUrl: string;
-  altText: string;
-  title: string;
-  subtitle?: string;
-  href?: string;
-  badges?: readonly string[];
-  period: string;
-  description?: string;
+  logoUrl: string
+  altText: string
+  title: string
+  subtitle?: string
+  href?: string
+  badges?: readonly string[]
+  period: string
+  description?: string
 }
 
 export const EducationCard = ({
@@ -28,85 +30,168 @@ export const EducationCard = ({
   period,
   description,
 }: EducationCardProps) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded, setIsExpanded] = React.useState(false)
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     if (description) {
-      e.preventDefault();
-      setIsExpanded(!isExpanded);
+      e.preventDefault()
+      setIsExpanded(!isExpanded)
     }
-  };
+  }
 
   return (
-    <Link
-      href={href || "#"}
-      className="block cursor-pointer"
-      onClick={handleClick}
-    >
-      <Card className="flex p-6 hover:shadow-lg transition-all duration-300 bg-card border-2 hover:border-primary/20 hover:bg-accent/50">
-        <div className="flex-none">
-          <Avatar className="border-2 size-16 m-auto bg-background shadow-md">
-            <AvatarImage
-              src={logoUrl}
-              alt={altText}
-              className="object-contain p-2"
-            />
-            <AvatarFallback className="bg-muted">{altText[0]}</AvatarFallback>
-          </Avatar>
-        </div>
-        <div className="flex-grow ml-6 items-center flex-col group">
-          <CardHeader className="p-0">
-            <div className="flex items-center justify-between gap-x-4 text-base">
-              <h3 className="inline-flex items-center justify-center font-semibold text-sm sm:text-base">
-                {title}
-                {badges && (
-                  <span className="inline-flex gap-x-2 ml-2">
-                    {badges.map((badge, index) => (
-                      <Badge
-                        variant="secondary"
-                        className="align-middle text-xs bg-secondary/80"
-                        key={index}
-                      >
-                        {badge}
-                      </Badge>
-                    ))}
-                  </span>
-                )}
-                <ChevronRightIcon
-                  className={cn(
-                    "size-5 ml-2 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
-                    isExpanded ? "rotate-90" : "rotate-0"
+    <motion.div whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
+      <Link href={href || "#"} className="block cursor-pointer" onClick={handleClick}>
+        <Card
+          className="
+            group
+            relative
+            overflow-hidden
+            p-0
+            transition-all 
+            duration-500 
+            ease-out
+            bg-gradient-to-br
+            from-white/90
+            to-gray-50/90
+            dark:from-gray-800/90
+            dark:to-gray-700/90
+            backdrop-blur-sm
+            border
+            border-gray-200/60
+            dark:border-gray-600/60
+            hover:border-primary/30
+            dark:hover:border-primary/40
+            hover:shadow-xl
+            hover:shadow-primary/10
+            dark:hover:shadow-primary/20
+            rounded-2xl
+          "
+        >
+          {/* Gradient overlay on hover */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+          {/* Content */}
+          <div className="relative z-10 p-6">
+            <div className="flex items-start gap-6">
+              {/* Enhanced Avatar */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="flex-shrink-0"
+              >
+                <div className="relative">
+                  <Avatar className="size-16 sm:size-18 border-2 border-primary/20 dark:border-primary/30 bg-background shadow-lg ring-2 ring-primary/10 dark:ring-primary/20">
+                    <AvatarImage
+                      src={logoUrl || "/placeholder.svg"}
+                      alt={altText}
+                      className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <AvatarFallback className="bg-gradient-to-br from-primary/20 to-primary/30 text-primary font-semibold">
+                      {altText[0]}
+                    </AvatarFallback>
+                  </Avatar>
+                  {/* Subtle glow effect */}
+                  <div className="absolute inset-0 rounded-full bg-primary/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                </div>
+              </motion.div>
+
+              {/* Content Area */}
+              <div className="flex-1 min-w-0">
+                <CardHeader className="p-0 space-y-3">
+                  {/* Header Row */}
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-3 mb-2">
+                        <GraduationCapIcon className="size-5 text-primary/70 dark:text-primary/80 flex-shrink-0" />
+                        <h3 className="font-bold text-lg sm:text-xl text-foreground group-hover:text-primary transition-colors duration-300 truncate">
+                          {title}
+                        </h3>
+                        <ChevronRightIcon
+                          className={cn(
+                            "size-5 text-muted-foreground/60 transform transition-all duration-300 ease-out flex-shrink-0",
+                            "group-hover:text-primary group-hover:translate-x-1",
+                            isExpanded ? "rotate-90" : "rotate-0",
+                          )}
+                        />
+                      </div>
+
+                      {/* Badges */}
+                      {badges && badges.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {badges.map((badge, index) => (
+                            <Badge
+                              key={index}
+                              variant="secondary"
+                              className="
+                                text-xs
+                                font-medium
+                                bg-primary/10
+                                dark:bg-primary/20
+                                text-primary
+                                dark:text-primary-foreground
+                                border-primary/20
+                                dark:border-primary/30
+                                hover:bg-primary/20
+                                dark:hover:bg-primary/30
+                                transition-colors
+                                duration-300
+                              "
+                            >
+                              {badge}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Period */}
+                    <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/50 dark:bg-muted/30 px-3 py-1.5 rounded-full border border-muted-foreground/20">
+                      <CalendarIcon className="size-4" />
+                      <span className="tabular-nums whitespace-nowrap">{period}</span>
+                    </div>
+                  </div>
+
+                  {/* Subtitle */}
+                  {subtitle && (
+                    <div className="flex items-start gap-3">
+                      <div className="w-5 flex-shrink-0" /> {/* Spacer to align with icon above */}
+                      <p className="text-base font-medium text-muted-foreground/90 leading-relaxed">{subtitle}</p>
+                    </div>
                   )}
-                />
-              </h3>
-              <div className="text-sm sm:text-base tabular-nums text-muted-foreground font-medium">
-                {period}
+                </CardHeader>
+
+                {/* Expandable Description */}
+                {description && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                    animate={{
+                      opacity: isExpanded ? 1 : 0,
+                      height: isExpanded ? "auto" : 0,
+                      marginTop: isExpanded ? 16 : 0,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                    }}
+                    className="overflow-hidden"
+                  >
+                    <div className="flex gap-3">
+                      <div className="w-5 flex-shrink-0" /> {/* Spacer */}
+                      <div className="flex-1 p-4 bg-muted/30 dark:bg-muted/20 rounded-xl border border-muted-foreground/10">
+                        <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">{description}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
               </div>
             </div>
-            {subtitle && (
-              <div className="font-sans text-sm mt-2 text-muted-foreground/80">
-                {subtitle}
-              </div>
-            )}
-          </CardHeader>
-          {description && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{
-                opacity: isExpanded ? 1 : 0,
-                height: isExpanded ? "auto" : 0,
-              }}
-              transition={{
-                duration: 0.7,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="mt-4 text-sm sm:text-base leading-relaxed"
-            >
-              {description}
-            </motion.div>
-          )}
-        </div>
-      </Card>
-    </Link>
-  );
-};
+          </div>
+
+          {/* Bottom border accent */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/0 via-primary/50 to-primary/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+        </Card>
+      </Link>
+    </motion.div>
+  )
+}
