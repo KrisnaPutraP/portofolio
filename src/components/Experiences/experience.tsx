@@ -101,16 +101,10 @@ const Experience: FC = () => (
             </div>
 
             {/* Roles */}
-            <div className="relative pl-8 sm:pl-12">
-              {/* Timeline line for roles */}
-              <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-primary/10 to-transparent" />
-
+            <div className="relative pl-0">
               <div className="flex flex-col gap-y-6">
                 {company.roles.map((role, roleIndex) => (
                   <div key={`${company.company}-${role.title}-${roleIndex}`} className="relative">
-                    {/* Timeline dot */}
-                    <div className="absolute -left-6 sm:-left-8 top-6 w-3 h-3 bg-primary rounded-full border-2 border-background shadow-lg" />
-
                     <ExperienceCard
                       title={role.title}
                       subtitle={company.location}

@@ -114,14 +114,14 @@ export const DATA = {
           start: "January 2025",
           end: "June 2025",
           description:
-            "As a Teaching Assistant for Discrete Mathematics, I supervised quizzes in a class of around 30 students and coordinated with other TAs to distribute grading responsibilities. I also evaluated quizzes, group assignments and homeworks for 21 students, and led post-quiz discussions analyzing the newly completed quizzes.",
+            "As a Teaching Assistant for Discrete Mathematics 2, I supervised biweekly quizzes and proctored both the midterm and final exams. I coordinated with two fellow TAs to distribute quiz papers, created homework problems, and graded both homework and quizzes for a group of 16 students. I also held assistance sessions with other TAs to help students prepare for upcoming quizzes and exams.",
         },
         {
           title: "Teaching Assistant of Data Structures and Algorithms",
           start: "August 2025",
           end: "December 2025",
           description:
-            "As a Teaching Assistant for Discrete Mathematics, I supervised quizzes in a class of 64 students and coordinated with two fellow TAs to distribute grading responsibilities. I also evaluated quizzes, group assignments and homeworks for 21 students, and led post-quiz discussions analyzing the newly completed quizzes.",
+            "As a Teaching Assistant for Data Structures and Algorithms, I supervised weekly lab sessions and helped design lab exercises and programming assignments. I conducted demo sessions where students explained their program flow, followed by Q&A sessions to assess their understanding for each programming assignment. I also proctored the midterm and final exams.",
         },
         
       ],

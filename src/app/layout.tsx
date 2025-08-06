@@ -9,6 +9,7 @@ import { Raleway } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/components/magicui/toaster"
 import Footer from "@/components/Footer/footer"
+import { ChatbotFAB } from "@/components/Chat/chatbot-fab"
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -83,6 +84,9 @@ export default function RootLayout({
                 <Footer />
               </div>
             </div>
+
+            {/* AI Chatbot */}
+            <ChatbotFAB />
 
             <Toaster />
           </TooltipProvider>

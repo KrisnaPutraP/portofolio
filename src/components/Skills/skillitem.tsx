@@ -88,7 +88,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
         </div>
 
         {/* Subtle border glow effect */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 dark:from-blue-400/25 dark:via-purple-400/25 dark:to-pink-400/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10" />
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 dark:from-blue-400/5 dark:via-purple-400/5 dark:to-pink-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out blur-sm -z-10" />
       </Card>
 
       {/* Original centered tooltip */}
