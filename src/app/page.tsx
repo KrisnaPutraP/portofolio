@@ -76,12 +76,12 @@ const Page: FC = () => {
         animate="visible"
       >
         {/* Hero section with better spacing */}
-        <motion.div className="mb-16 sm:mb-20 lg:mb-24" variants={fadeInUpVariants}>
+        <motion.div className="mb-12 sm:mb-16 md:mb-20 lg:mb-24" variants={fadeInUpVariants}>
           <AnimatedHeader />
         </motion.div>
 
         {/* Content sections with improved responsive spacing */}
-        <div className="space-y-20 sm:space-y-24 lg:space-y-32">
+        <div className="space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24 xl:space-y-32">
           {sections.map((section, index) => (
             <motion.section
               key={section.key}

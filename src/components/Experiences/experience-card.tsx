@@ -60,28 +60,30 @@ export const ExperienceCard = ({ title, subtitle, href, badges, period, descript
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 dark:from-primary/8 dark:to-primary/12 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {/* Content */}
-          <div className="relative z-10 p-5">
+          <div className="relative z-10 p-4 sm:p-5">
             <CardHeader className="p-0 space-y-3">
-              {/* Header Row */}
-              <div className="flex items-start justify-between gap-4">
+              {/* Header Row - Mobile Stack, Desktop Row */}
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-3 mb-2">
-                    <BriefcaseIcon className="size-5 text-primary/70 dark:text-primary/80 flex-shrink-0" />
-                    <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300 truncate">
-                      {title}
-                    </h3>
+                  <div className="flex items-start gap-2 sm:gap-3 mb-2">
+                    <BriefcaseIcon className="size-4 sm:size-5 text-primary/70 dark:text-primary/80 flex-shrink-0 mt-0.5" />
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-base sm:text-lg text-foreground group-hover:text-primary transition-colors duration-300 leading-tight">
+                        {title}
+                      </h3>
+                    </div>
                     <ChevronRightIcon
                       className={cn(
-                        "size-4 text-muted-foreground/60 transform transition-all duration-300 ease-out flex-shrink-0",
+                        "size-4 text-muted-foreground/60 transform transition-all duration-300 ease-out flex-shrink-0 sm:hidden",
                         "group-hover:text-primary group-hover:translate-x-1",
                         isExpanded ? "rotate-90" : "rotate-0",
                       )}
                     />
                   </div>
 
-                  {/* Badges */}
+                  {/* Badges - Mobile Full Width */}
                   {badges && badges.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-3">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 ml-6 sm:ml-8">
                       {badges.map((badge, index) => (
                         <Badge
                           key={index}
@@ -99,6 +101,7 @@ export const ExperienceCard = ({ title, subtitle, href, badges, period, descript
                             dark:hover:bg-primary/30
                             transition-colors
                             duration-300
+                            px-2 py-0.5
                           "
                         >
                           {badge}
@@ -108,17 +111,24 @@ export const ExperienceCard = ({ title, subtitle, href, badges, period, descript
                   )}
                 </div>
 
-                {/* Period */}
-                <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/50 dark:bg-muted/30 px-3 py-1.5 rounded-full border border-muted-foreground/20">
-                  <CalendarIcon className="size-4" />
-                  <span className="tabular-nums whitespace-nowrap">{period}</span>
+                {/* Period - Mobile Full Width, Desktop Right */}
+                <div className="flex items-center justify-center gap-2 text-sm font-medium text-muted-foreground bg-muted/50 dark:bg-muted/30 px-3 py-1.5 rounded-full border border-muted-foreground/20 w-full sm:w-fit mx-auto sm:mx-0">
+                  <CalendarIcon className="size-3 sm:size-4 flex-shrink-0" />
+                  <span className="tabular-nums text-xs sm:text-sm whitespace-nowrap">{period}</span>
+                  <ChevronRightIcon
+                    className={cn(
+                      "size-4 text-muted-foreground/60 transform transition-all duration-300 ease-out flex-shrink-0 hidden sm:block",
+                      "group-hover:text-primary group-hover:translate-x-1",
+                      isExpanded ? "rotate-90" : "rotate-0",
+                    )}
+                  />
                 </div>
               </div>
 
               {/* Subtitle */}
               {subtitle && (
-                <div className="flex items-start gap-3">
-                  <div className="w-5 flex-shrink-0" /> {/* Spacer to align with icon above */}
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div className="w-4 sm:w-5 flex-shrink-0" /> {/* Spacer to align with icon above */}
                   <p className="text-sm font-medium text-muted-foreground/90">{subtitle}</p>
                 </div>
               )}
@@ -131,7 +141,7 @@ export const ExperienceCard = ({ title, subtitle, href, badges, period, descript
                 animate={{
                   opacity: isExpanded ? 1 : 0,
                   height: isExpanded ? "auto" : 0,
-                  marginTop: isExpanded ? 16 : 0,
+                  marginTop: isExpanded ? 12 : 0,
                 }}
                 transition={{
                   duration: 0.5,
@@ -139,9 +149,9 @@ export const ExperienceCard = ({ title, subtitle, href, badges, period, descript
                 }}
                 className="overflow-hidden"
               >
-                <div className="flex gap-3">
-                  <div className="w-5 flex-shrink-0" /> {/* Spacer */}
-                  <div className="flex-1 p-4 bg-muted/30 dark:bg-muted/20 rounded-lg border border-muted-foreground/10">
+                <div className="flex gap-2 sm:gap-3">
+                  <div className="w-4 sm:w-5 flex-shrink-0" /> {/* Spacer */}
+                  <div className="flex-1 p-3 sm:p-4 bg-muted/30 dark:bg-muted/20 rounded-lg border border-muted-foreground/10">
                     <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
                   </div>
                 </div>
