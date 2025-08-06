@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { MessageCircleIcon, XIcon, SparklesIcon } from "lucide-react"
+import { MessageCircleIcon, XIcon, SparklesIcon } from 'lucide-react'
 import { Button } from "@/components/magicui/button"
 import { ChatInterface } from "./chat-interface"
 
@@ -13,7 +13,7 @@ export const ChatbotFAB = () => {
     <>
       {/* Floating Action Button */}
       <motion.div
-        className="fixed bottom-6 right-6 z-40 sm:bottom-8 sm:right-8"
+        className="fixed bottom-20 right-4 z-40 sm:bottom-8 sm:right-8 md:bottom-8 md:right-8"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 2, type: "spring", stiffness: 300, damping: 20 }}
@@ -89,8 +89,9 @@ export const ChatbotFAB = () => {
               className="
                 absolute
                 right-full
-                top-1/2
-                -translate-y-1/2
+                top-0
+                bottom-0
+                my-auto
                 mr-4
                 px-3
                 py-2
@@ -103,9 +104,12 @@ export const ChatbotFAB = () => {
                 shadow-lg
                 whitespace-nowrap
                 pointer-events-none
+                hidden
+                sm:block
+                h-fit
               "
             >
-              Ask me anything!
+              Get to know Krisna better!
               <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-800 dark:border-l-gray-900" />
             </motion.div>
           )}
