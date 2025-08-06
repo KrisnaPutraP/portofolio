@@ -91,22 +91,28 @@ const Projects = () => {
                     </div>
                   )}
                   <div className="flex gap-4 mt-4">
-                    {project.links?.map((link) => (
+                    {project.links?.map((link, index) => (
                       <Button
-                        key={link.href}
+                        key={('href' in link ? link.href : `link-${index}`)}
                         variant="outline"
                         size="sm"
-                        asChild
+                        asChild={'href' in link}
                         className="hover:bg-blue-500/10 hover:text-blue-600 hover:border-blue-500/30"
                       >
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
-                        >
-                          {link.icon} {link.type}
-                        </a>
+                        {'href' in link ? (
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2"
+                          >
+                            {link.icon} {link.type}
+                          </a>
+                        ) : (
+                          <span className="flex items-center gap-2">
+                            {link.icon} {link.type}
+                          </span>
+                        )}
                       </Button>
                     ))}
                   </div>
