@@ -63,20 +63,20 @@ const Page: FC = () => {
 
   return (
     <>
-      {/* Fixed navigation with improved z-index */}
+      {/* Fixed navigation with proper z-index */}
       <div className="fixed top-0 left-0 right-0 z-[100]">
         <NavBar />
         <ScrollProgress className="top-[64px]" />
       </div>
 
-      {/* Main content with proper mobile spacing */}
+      {/* Main content container */}
       <motion.main
-        className="relative flex flex-col min-h-screen w-full overflow-x-hidden"
+        className="relative flex flex-col min-h-screen w-full"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Hero section with proper mobile spacing */}
+        {/* Hero section */}
         <motion.div
           className="pt-16 mb-8 sm:mb-12 md:mb-16 lg:mb-20"
           variants={fadeInUpVariants}
@@ -84,8 +84,8 @@ const Page: FC = () => {
           <AnimatedHeader />
         </motion.div>
 
-        {/* Content sections with improved mobile responsive spacing */}
-        <div className="relative z-10 space-y-8 sm:space-y-12 md:space-y-16 lg:space-y-20 xl:space-y-24">
+        {/* Content sections with proper spacing */}
+        <div className="relative z-10 space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24 xl:space-y-32 px-4 sm:px-6 lg:px-8">
           {sections.map((section, index) => (
             <motion.section
               key={section.key}
@@ -94,43 +94,41 @@ const Page: FC = () => {
               whileInView="visible"
               viewport={{
                 once: false,
-                margin: "-50px",
-                amount: 0.1,
+                margin: "-80px",
+                amount: 0.2,
               }}
-              className="scroll-mt-20 w-full"
-              style={{ minHeight: "50vh" }}
+              className="scroll-mt-20 w-full max-w-7xl mx-auto"
             >
               {section.component}
             </motion.section>
           ))}
 
-          {/* Projects section with enhanced mobile spacing */}
+          {/* Projects section */}
           <motion.section
             variants={fadeInUpVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{
               once: false,
-              margin: "-50px",
-              amount: 0.1,
+              margin: "-80px",
+              amount: 0.2,
             }}
-            className="scroll-mt-20 w-full"
-            style={{ minHeight: "50vh" }}
+            className="scroll-mt-20 w-full max-w-7xl mx-auto"
           >
             <Projects />
           </motion.section>
 
-          {/* Contacts section with proper mobile bottom spacing */}
+          {/* Contacts section */}
           <motion.section
             variants={fadeInUpVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{
               once: false,
-              margin: "-50px",
-              amount: 0.1,
+              margin: "-80px",
+              amount: 0.2,
             }}
-            className="scroll-mt-20 pb-20 sm:pb-24 lg:pb-32 w-full"
+            className="scroll-mt-20 pb-20 sm:pb-24 lg:pb-32 w-full max-w-7xl mx-auto"
           >
             <Contacts />
           </motion.section>

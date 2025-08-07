@@ -20,7 +20,7 @@ const TypeWriter = ({ text, onComplete }: { text: string; onComplete: () => void
           setDisplayText(text.slice(0, currentIndex));
           currentIndex++;
           type();
-        }, 100);
+        }, 50);
         timeouts.push(timeout);
       } else {
         setIsTyping(false);
@@ -43,7 +43,6 @@ export default function AnimatedHeader() {
     "Software Engineering",
     "Data Science",
     "Machine Learning",
-    "Problem Solving",
     "Web-3 Development",
   ];
 
@@ -127,7 +126,7 @@ export default function AnimatedHeader() {
             transition={{ duration: 0.3 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
-              I am an expert in
+              I am experienced in
             </h2>
             <div className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 opacity-50" />
           </motion.div>

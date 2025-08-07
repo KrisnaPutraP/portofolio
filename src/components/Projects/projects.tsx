@@ -25,13 +25,13 @@ const Projects = () => {
         </div>
       </BlurFade>
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-6xl mx-auto">
         <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2 xl:gap-8">
           {DATA.projects.map((project, id) => (
             <BlurFade key={project.title} delay={0.05 * 12 + id * 0.05}>
               <Dialog>
                 <DialogTrigger asChild>
-                  <Card className="group/card relative min-h-[380px] sm:min-h-[420px] w-full flex flex-col overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg cursor-pointer border">
+                  <Card className="group/card relative min-h-[380px] sm:min-h-[420px] w-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-lg cursor-pointer border">
                     <div className="relative h-36 sm:h-48 w-full overflow-hidden flex-shrink-0">
                       {project.image && (
                         <Image

@@ -13,24 +13,24 @@ const Section = ({ id, title, children, className }: SectionProps) => {
     <section
       id={id}
       className={cn(
-        "relative overflow-hidden",
+        "relative overflow-visible",
         "border border-slate-200/50 dark:border-slate-800/50",
         "bg-gradient-to-br from-white/50 via-slate-50/30 to-white/50",
         "dark:from-slate-900/50 dark:via-slate-800/30 dark:to-slate-900/50",
         "backdrop-blur-[12px]",
-        "p-8",
+        "p-6 sm:p-8",
         "transition-all duration-500 ease-out",
         "hover:border-border hover:shadow-xl",
-        "hover:scale-[1.01]",
         "group",
+        "rounded-lg",
         className
       )}
     >
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-lg" />
       </div>
 
-      <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-lg">
         {/* Top left corner */}
         <div className="absolute left-0 top-0 h-[2px] w-8 bg-gradient-to-r from-primary to-transparent" />
         <div className="absolute left-0 top-0 h-8 w-[2px] bg-gradient-to-b from-primary to-transparent" />

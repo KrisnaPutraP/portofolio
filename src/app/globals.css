@@ -76,6 +76,21 @@
     }
     body {
       @apply bg-background text-foreground;
+      overflow-x: hidden;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Prevent double scrollbars */
+  @layer utilities {
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
     }
   }
 
@@ -147,14 +162,6 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
 
-/* styles/globals.css */
-
-/* Existing Tailwind imports and styles */
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Custom Tooltip Centering */
 @layer components {
   [data-side="top"] {
@@ -172,12 +179,12 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
   [data-side="left"] {
     top: 50% !important;
     left: 50% !important;
-    transform: translate(-150%, -50%) !important; /* Adjust as needed */
+    transform: translate(-150%, -50%) !important;
   }
 
   [data-side="right"] {
     top: 50% !important;
     left: 50% !important;
-    transform: translate(50%, -50%) !important; /* Adjust as needed */
+    transform: translate(50%, -50%) !important;
   }
 }
