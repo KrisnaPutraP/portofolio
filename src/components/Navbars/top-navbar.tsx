@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import { Bars3Icon as MenuIcon, XMarkIcon as XIcon } from "@heroicons/react/24/outline"; // Ensure these icons are installed
+import { Bars3Icon as MenuIcon, XMarkIcon as XIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 const NavBar = () => {
@@ -51,7 +51,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b">
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-background/80 backdrop-blur-sm border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-3 items-center h-16">
           <div className="flex items-center justify-start">
@@ -95,7 +95,7 @@ const NavBar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/90 backdrop-blur-sm border-t">
+        <div className="md:hidden bg-background/95 backdrop-blur-sm border-t border-b max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <button

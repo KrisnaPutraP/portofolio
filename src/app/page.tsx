@@ -14,6 +14,7 @@ import Education from "@/components/Educations/education"
 import SkillCategory from "@/components/Skills/skillcategory"
 import Section from "@/components/Containers/section"
 import AnimatedHeader from "@/components/Header/animated-header"
+import { ChatbotFAB } from "@/components/Chat/chatbot-fab"
 
 const fadeInUpVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -62,26 +63,29 @@ const Page: FC = () => {
 
   return (
     <>
-      {/* Fixed navigation with improved positioning */}
-      <div className="fixed top-0 left-0 right-0 z-50">
+      {/* Fixed navigation with improved z-index */}
+      <div className="fixed top-0 left-0 right-0 z-[100]">
         <NavBar />
         <ScrollProgress className="top-[64px]" />
       </div>
 
-      {/* Main content with improved spacing and structure */}
+      {/* Main content with proper mobile spacing */}
       <motion.main
-        className="flex flex-col min-h-screen w-full"
+        className="relative flex flex-col min-h-screen w-full overflow-x-hidden"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Hero section with better spacing */}
-        <motion.div className="mb-12 sm:mb-16 md:mb-20 lg:mb-24" variants={fadeInUpVariants}>
+        {/* Hero section with proper mobile spacing */}
+        <motion.div
+          className="pt-16 mb-8 sm:mb-12 md:mb-16 lg:mb-20"
+          variants={fadeInUpVariants}
+        >
           <AnimatedHeader />
         </motion.div>
 
-        {/* Content sections with improved responsive spacing */}
-        <div className="space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24 xl:space-y-32">
+        {/* Content sections with improved mobile responsive spacing */}
+        <div className="relative z-10 space-y-8 sm:space-y-12 md:space-y-16 lg:space-y-20 xl:space-y-24">
           {sections.map((section, index) => (
             <motion.section
               key={section.key}
@@ -90,46 +94,51 @@ const Page: FC = () => {
               whileInView="visible"
               viewport={{
                 once: false,
-                margin: "-80px",
-                amount: 0.2,
+                margin: "-50px",
+                amount: 0.1,
               }}
-              className="scroll-mt-20"
+              className="scroll-mt-20 w-full"
+              style={{ minHeight: "50vh" }}
             >
               {section.component}
             </motion.section>
           ))}
 
-          {/* Projects section with enhanced spacing */}
+          {/* Projects section with enhanced mobile spacing */}
           <motion.section
             variants={fadeInUpVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{
               once: false,
-              margin: "-80px",
-              amount: 0.2,
+              margin: "-50px",
+              amount: 0.1,
             }}
-            className="scroll-mt-20"
+            className="scroll-mt-20 w-full"
+            style={{ minHeight: "50vh" }}
           >
             <Projects />
           </motion.section>
 
-          {/* Contacts section with proper bottom spacing */}
+          {/* Contacts section with proper mobile bottom spacing */}
           <motion.section
             variants={fadeInUpVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{
               once: false,
-              margin: "-80px",
-              amount: 0.2,
+              margin: "-50px",
+              amount: 0.1,
             }}
-            className="scroll-mt-20 pb-8 sm:pb-12 lg:pb-16"
+            className="scroll-mt-20 pb-20 sm:pb-24 lg:pb-32 w-full"
           >
             <Contacts />
           </motion.section>
         </div>
       </motion.main>
+
+      {/* Chat FAB */}
+      <ChatbotFAB />
     </>
   )
 }
