@@ -156,19 +156,16 @@ export const ChatInterface = ({ isOpen, onClose }: ChatInterfaceProps) => {
                     <div className="size-10 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-lg">
                       <BotIcon className="size-5 text-primary-foreground" />
                     </div>
-                    <motion.div
-                      className="absolute -top-1 -right-1"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                    >
+                    {/* Simplified AI indicator - no animation for mobile performance */}
+                    <div className="absolute -top-1 -right-1">
                       <SparklesIcon className="size-3 text-yellow-400" />
-                    </motion.div>
+                    </div>
                     <div className="absolute -bottom-0.5 -right-0.5 size-3 bg-green-500 rounded-full border-2 border-white dark:border-gray-900 shadow-sm" />
                   </div>
                   <div>
                     <h3 className="font-bold text-base text-foreground">Krisna&apos;s AI Assistant</h3>
                     <p className="text-xs text-muted-foreground flex items-center gap-1">
-                      <div className="size-2 bg-green-500 rounded-full animate-pulse" />
+                      <div className="size-2 bg-green-500 rounded-full" />
                       Online & ready to help
                     </p>
                   </div>
@@ -184,9 +181,9 @@ export const ChatInterface = ({ isOpen, onClose }: ChatInterfaceProps) => {
                   {messages.map((message, index) => (
                     <motion.div
                       key={message.id}
-                      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      transition={{ delay: index * 0.1 }}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.05, duration: 0.3 }}
                       className={`flex gap-3 ${message.role === "user" ? "flex-row-reverse" : ""}`}
                     >
                       <div
@@ -239,7 +236,7 @@ export const ChatInterface = ({ isOpen, onClose }: ChatInterfaceProps) => {
                     </motion.div>
                   )}
 
-                  {/* Loading indicator */}
+                  {/* Loading indicator - simplified animation */}
                   {isLoading && (
                     <motion.div 
                       initial={{ opacity: 0, y: 10 }} 
@@ -251,9 +248,9 @@ export const ChatInterface = ({ isOpen, onClose }: ChatInterfaceProps) => {
                       </div>
                       <div className="bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-700 p-3 rounded-2xl rounded-bl-md border border-gray-200/50 dark:border-gray-600/50">
                         <div className="flex gap-1">
-                          <div className="size-2 bg-primary/60 rounded-full animate-bounce" />
-                          <div className="size-2 bg-primary/60 rounded-full animate-bounce delay-100" />
-                          <div className="size-2 bg-primary/60 rounded-full animate-bounce delay-200" />
+                          <div className="size-2 bg-primary/60 rounded-full animate-pulse" />
+                          <div className="size-2 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '0.1s' }} />
+                          <div className="size-2 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
                         </div>
                       </div>
                     </motion.div>

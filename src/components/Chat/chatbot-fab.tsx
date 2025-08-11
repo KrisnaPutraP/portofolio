@@ -62,20 +62,16 @@ export const ChatbotFAB = () => {
                 className="relative"
               >
                 <MessageCircleIcon className="size-6 text-primary-foreground" />
-                {/* AI indicator */}
-                <motion.div
-                  className="absolute -top-1 -right-1"
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                >
+                {/* AI indicator - simplified for mobile performance */}
+                <div className="absolute -top-1 -right-1">
                   <SparklesIcon className="size-3 text-yellow-300" />
-                </motion.div>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* Pulse effect */}
-          <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping opacity-75 group-hover:opacity-0 transition-opacity duration-300" />
+          {/* Subtle glow effect instead of ping animation */}
+          <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </Button>
 
         {/* Tooltip */}
@@ -121,3 +117,4 @@ export const ChatbotFAB = () => {
     </>
   )
 }
+     
